@@ -109,7 +109,9 @@ func (ex Extension) ogen(next gen.Generator) gen.Generator {
 			return err
 		}
 		// Run the ogen code generator.
-		generator, err := ogengen.NewGenerator(ex.spec, ogengen.Options{})
+		generator, err := ogengen.NewGenerator(ex.spec, ogengen.Options{
+			InferSchemaType: true,
+		})
 		if err != nil {
 			return err
 		}
